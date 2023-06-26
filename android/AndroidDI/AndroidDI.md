@@ -28,6 +28,7 @@ fun main(args: Array) {
 
 ### 클래스들의 관계도
 ![screensh](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbf7QiU%2FbtrdC5hrD8I%2Fk2mTuKSW437iCHB43q7En1%2Fimg.png)
+
 이러한 방법으로 클래스가 필요한 객체를 얻는 경우 Car와 Engine이 밀접하게 연관되어 있기 때문에 
 문제가 생길 수 있다. 우선 코드의 재사용이 여러워진다. Car 인스턴스는 자신이 생성한 한가지 
 유형의 Engine만을 사용하기 때문에 Engine 유형이 Gas와 Electric 두 가지라면 하나의 Car 
