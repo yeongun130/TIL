@@ -1,6 +1,6 @@
 # Fragment LifeCycle
 ![screensh](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcDyVCU%2Fbtq9CtTEtoA%2FkpOuUqYRAw8aVmbyKT7jpk%2Fimg.png)
-
+ 
 액티비티의 생명주기에 따른 콜백 함수와 비교 해봤을 때 생성 시 onCreateView() - 
 onViewStateRestored()가 추가로 있고, 종료 시 onSaveInstanceState() - 
 onDestroyView()가 추가로 있다.
