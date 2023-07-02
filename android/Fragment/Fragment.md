@@ -3,7 +3,7 @@
  
 액티비티의 생명주기에 따른 콜백 함수와 비교 해봤을 때 생성 시 onCreateView() - 
 onViewStateRestored()가 추가로 있고, 종료 시 onSaveInstanceState() - 
-onDestroyView()가 추가로 있다.
+onDestroyView()가 추가로 있다. 
 
 액티비티도 마찬가지이지만 기본적으로 LifeCycle은 위에서 아래 방향으로 진행된다. 
 Fragment가 백스택에 최상단으로 올라왔을 경우 생명주기가 CREATED - STARTED - 
