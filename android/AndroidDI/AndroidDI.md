@@ -10,7 +10,7 @@ DI란 Dependency Injection의 약자로 의존성 주입을 의미한다. 의존
 기법으로, DI의 원칙을 따르면 훌륭한 앱 아키택처를 위한 토대를 마련할 수 있다.
 
 ## DI 예시
-### 1) 클래스가 필요한 종속 항목을 구성한다.
+### 1) 클래스가 필요한 종속 항목을 구성한다. 
 ~~~ kotlin
 class Car {
     private val engine = Engine()
