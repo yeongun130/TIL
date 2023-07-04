@@ -70,3 +70,26 @@ Domain 계층의 의존성을 가지고 있다. Domain 계층의 Repository 구�
 
 Presentation 계층과 Domain 계층은 데이터베이스를 어떤 것을 사용하는지 전혀 알지 못한다.
 때문에 Data 계층의 데이터베이스 관련 로직만 변경해주면 보다 쉽게 데이터베이스를 변경할 수 있다.
+
+## 안드로이드에 적용하기
+### Presentation Layer(UI Layer)
+화면과 관련된 모든 것들이 이 레이어에 포함된다.
+
+![screensh](https://velog.velcdn.com/images/im_ssu/post/f7a46b09-db05-4f46-8e42-e19dd57c19e5/image.png)
+- UI : UI를 표시하는 부분(HostActivity, SearchImageFragment 등)
+- Presenter : UI 업데이트와 관련된 로직 구현(SearchImageViewModel 등)
+
+### Domain Layer
+독립적인 계층으로, 다른 계층의 변경이 Domain Layer에 영향을 끼쳐서는 안된다.
+
+![screensh](https://velog.velcdn.com/images/im_ssu/post/cfae78fe-b613-4d9b-93a4-f9e64a30ea1c/image.png)
+- UseCase : 행동들의 최소단위
+- Model : 필요한 데이터
+- Repository(Interface) : 관련된 행동들을 정의
+
+### Data Layer
+![screensh](https://velog.velcdn.com/images/im_ssu/post/4f76f7de-22c9-4dc8-baf3-62279a3d8522/image.png)
+- DataStore : 로컬 DB 또는 REST API 통신과 관련된 내용
+- Entity : 로컬 DB의 테이블을 만들기 위한 Entity와 서버 통신을 위한 Dto가 포함된다.
+- Repository(구현체) : Domain Layer의 Repository Interface의 실제 구현을 담당한다.
+- Mapper : Entity -> Model, Dto -> Entity, Dto -> Model 등과 같이 데이터들의 형식을 변환한다.
