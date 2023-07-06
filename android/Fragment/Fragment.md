@@ -31,7 +31,7 @@ onCreateView()의 값으로 정상적인 FragmentView 객체를 제공했을 때
 LifeCycle이 생성된다.
 onCreateView()를 재정의 하여 FragmentView를 직접 생성하고 Inflate 할 수 있지만 
 LayoutId를 받는 Fragment의 생성자를 사용하여 해당 리소스 아이디 값을 통해 onCreateView() 
-재정의 없이도 FragmentView를 생성할 수 있다. onCreateView()를 통해 반한된 View 객체는 
+재정의 없이도 FragmentView를 생성할 수 있다. onCreateView()를 통해 반환된 View 객체는 
 onViewCreated()의 파라미터로 전달 되는데, 이 시점부터는 FragmentView의 LifeCycle이 
 INITIALIZED 상태로 업데이트 되기 때문에 View의 초기값을 설정해주거나 LiveData 옵저빙, 
 RecyclerView 또는 ViewPager2에 사용될 Adapter 세팅 등은 onViewCreated()에서 
