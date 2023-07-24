@@ -45,5 +45,27 @@ class ExampleApplication: Application() {  }
 class ExampleActivity: AppCompatActivity() {  }
 ```
 
+`Activity`외에도 Android 클래스를 지원한다.
+
+- Application(@HiltAndroidApp)
+- ViewModel(@HiltViewModel)
+- Activity
+- Fragment
+- View
+- Service
+- BroadCastReceiver
+
+### **의존성 주입 정의**
+```kotlin
+class AnalyticsAdapter @Inject constructor(
+    private val service: AnalyticsService
+) {  }
+```
+`@Inject`주석을 사용하여 인스턴스를 제공하는 방법을 Hilt에게 알려준다.
+
+## **Component hierarchy**
+
+![screensh](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcl8gyc%2Fbtq1UNfDwtS%2FKUMlMdk66c486inLi9gQDK%2Ftfile.svg)
+- Hilt에서 제공하는 Component hierarchy
 
 
