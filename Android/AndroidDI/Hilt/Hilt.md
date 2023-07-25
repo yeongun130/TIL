@@ -63,9 +63,35 @@ class AnalyticsAdapter @Inject constructor(
 ```
 `@Inject`주석을 사용하여 인스턴스를 제공하는 방법을 Hilt에게 알려준다.
 
-## **Component hierarchy**
-
+### **Hilt에서 제공하는 Component hierarchy**
 ![screensh](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcl8gyc%2Fbtq1UNfDwtS%2FKUMlMdk66c486inLi9gQDK%2Ftfile.svg)
-- Hilt에서 제공하는 Component hierarchy
+
+### **Hilt에서 제공하는 Component, Lifecycle, Scope**
+| Hilt component            | Injector for                   | Created at             | Destroyed at            | Scope                   | 
+|---------------------------|--------------------------------|------------------------|-------------------------|-------------------------|
+| SingletonComponent        | Application                    | Application#onCreate() | Application#onDestroy() | @Singleton              |
+| ActivityRetainedComponent | 해당없음                           | Activity#onCreate()    | Activity#onDestroy()    | @ActivityRetainedScoped |   
+| ViewModelComponent        | ViewModel                      | ViewModel created      | ViewModel destroyed     | @ViewModelScoped        |   
+| ActivityComponent         | Activity                       | Activity#onCreate()    | Activity#onDestroy()    | @ActivityScoped         |   
+| FragmentComponent         | Fragment                       | Fragment#onAttach()    | Fragment#onDestroy()    | @FragmentScoped         |   
+| ViewComponent             | View                           | View#super()           | View destroyed          | @ViewScoped             |   
+| ViewWithFragmentComponent | @WithFragmentBindings가 붙은 View | View#super()           | View destroyed          | @ViewScoped             |   
+| ServiceComponent          | Service                        | Service#onCreate()     | Service#onDestroy()     | @ServiceScoped          |  
+
+- SingletonComponent : Application의 생명주기를 갖는다. Application이 생성 되는 시점에 같이 생성되고, 
+파괴 되는 시점에 같이 파괴된다.
+- ActivityRetainedComponent : Activity의 생명주기를 갖는다. 다만, Activity의 Configuration 
+Change(디바이스 화면 전환 등..)시에는 파괴 되지 않고 유지된다.
+- ViewModelComponent : Jetpack ViewModel의 생명주기를 갖는다.
+- ActivityComponent : Activity의 생명주기를 갖는다. Activity가 생성 되는 시점에 같이 생성 되고, 
+파괴 되는 시점에 같이 파괴된다.
+- FragmentComponent : Fragment의 생명주기를 갖는다. Fragment가 Activity에 붙는 시점에 
+생성 되고, 파괴 되는 시점에 같이 파괴된다.
+- ViewComponent : View의 생명주기를 갖는다. View가 생성 되는 시점에 같이 생성 되고, 파괴 되는 시점에 
+파괴 되는 시점에 같이 파괴된다.
+- ViewWithFragmentComponent : Fragment의 View 생명주기를 갖는다. View가 생성 되는 시점에 
+같이 생성 되고, 파괴는 시점에 같이 파괴된다.
+- ServiceComponent : Service의  생명주기를 갖는다. Service가 생성 되는 시점에 같이 생성 되고, 파괴 되는 시점에
+  파괴 되는 시점에 같이 파괴된다.
 
 
