@@ -59,9 +59,5 @@ fun TextFieldExample() {
             label = { Text("Name") }
         )
     }
-<<<<<<< HEAD
-} 
-=======
 }
->>>>>>> origin/main
 ```
